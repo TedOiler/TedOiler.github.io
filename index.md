@@ -23,8 +23,6 @@ Outside of academia, I have worked at **Johnson & Johnson (Belgium)** as a stati
 ---
 
 ## Current Projects
-- **The Lindy List**: Jazz dance event calendar for Athens, Greece  
-- **Swing Trading Simulator** (in progress): Building a backtesting engine and dashboard for European markets  
 - **Thesis Work**: Nonparametric Bayesian designs for longitudinal curves
 
 ---
