@@ -3,7 +3,7 @@
 *King's College London* | Functional Data | Optimal Design of Experiments
 
 📍 Based in Athens & London  
-✉️ theodore.ladas@email.com | [GitHub](https://github.com/tedoiler) | [LinkedIn](https://linkedin.com/in/yourname) | [CV (PDF)](assets/CV_TheodoreLadas.pdf)
+✉️ theodore.ladas@email.com | [GitHub](https://github.com/tedoiler) | [LinkedIn](https://linkedin.com/in/yourname) | [CV (PDF)](cv.pdf)
 
 ---
 
