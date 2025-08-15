@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Theodore Ladas — Statistics & Design of Experiments</title>
   <meta name="description" content="PhD in Statistics focusing on Optimal Design of Experiments and Functional Data. Projects, writing, CV, and ways to connect." />
-  <meta property="og:title" content="Theodore Ladas — Statistics & DOE" />
-  <meta property="og:description" content="PhD in Statistics focusing on Optimal Design of Experiments and Functional Data." />
-  <meta property="og:type" content="website" />
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Tailwind config: brand color + dark mode via class
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -31,6 +29,7 @@
   </style>
 </head>
 <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased">
+  <!-- Page wrapper -->
   <div class="min-h-screen">
     <!-- Header -->
     <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800/60">
@@ -45,7 +44,7 @@
             <a href="#cv" class="hover:text-brand-600">CV</a>
           </nav>
           <div class="flex items-center gap-2">
-            <button id="themeToggle" class="rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1.5 text-sm" aria-label="Toggle dark mode">🌓</button>
+            <button id="themeToggle" class="rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-900" aria-label="Toggle dark mode">🌓</button>
             <a href="mailto:theodore.ladas@kcl.ac.uk" class="hidden sm:inline-flex items-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm px-3 py-1.5">Email</a>
           </div>
         </div>
@@ -66,6 +65,7 @@
             <a href="https://contratenor.blot.im" class="inline-flex items-center rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-2 hover:shadow-sm">📓 Read my blog</a>
             <a href="https://uk.linkedin.com/in/thodorisladas" class="inline-flex items-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-4 py-2">🔗 Connect on LinkedIn</a>
             <a href="#projects" class="inline-flex items-center rounded-xl px-4 py-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-700">🧪 See projects</a>
+            <!-- Download CV button -->
             <a href="cv.pdf" download class="inline-flex items-center rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-2 hover:shadow-sm">⬇️ Download CV (PDF)</a>
           </div>
           <div class="mt-4 text-sm text-slate-500 dark:text-slate-400">📍 Athens 🇬🇷 · London 🇬🇧</div>
@@ -92,13 +92,15 @@
       </p>
     </section>
 
-    <!-- Research -->
+    <!-- Research / Publications -->
     <section id="research" class="max-w-5xl mx-auto px-4 sm:px-6 py-14 border-t border-slate-200/70 dark:border-slate-800/70 reveal">
       <div class="flex items-end justify-between">
         <h2 class="text-xl font-semibold">Research</h2>
         <a href="#" class="text-sm text-brand-600 hover:underline" id="pubsToggle">Toggle abstracts</a>
       </div>
-      <div id="pubs" class="mt-6 grid gap-4"></div>
+      <div id="pubs" class="mt-6 grid gap-4">
+        <!-- Filled by JS below; edit the publications[] array to update -->
+      </div>
     </section>
 
     <!-- Projects -->
@@ -107,7 +109,9 @@
         <h2 class="text-xl font-semibold">Projects</h2>
         <a href="https://github.com/TedOiler" class="text-sm text-brand-600 hover:underline">More on GitHub →</a>
       </div>
-      <div id="projectsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="projectsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Cards populated by JS; edit projects[] below -->
+      </div>
     </section>
 
     <!-- Writing -->
@@ -139,26 +143,96 @@
       </ul>
     </section>
 
-    <!-- CV -->
+    <!-- CV (highlights pulled into the site) -->
     <section id="cv" class="max-w-5xl mx-auto px-4 sm:px-6 py-14 border-t border-slate-200/70 dark:border-slate-800/70 reveal">
       <div class="flex items-end justify-between">
-        <h2 class="text-xl font-semibold">Curriculum Vitae</h2>
+        <h2 class="text-xl font-semibold">CV Highlights</h2>
         <div class="flex gap-2">
           <a href="cv.pdf" download class="inline-flex items-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 text-sm">⬇️ Download PDF</a>
           <a href="cv.pdf" target="_blank" rel="noopener" class="inline-flex items-center rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:shadow-sm">↗ Open in new tab</a>
         </div>
       </div>
-      <p class="mt-3 text-slate-700 dark:text-slate-300">Embedded below. If your browser blocks inline PDFs, use the buttons above.</p>
-      <div class="mt-4 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-        <!-- Use <object> for broad support with a graceful fallback -->
-        <object data="cv.pdf" type="application/pdf" class="w-full" style="height:80vh">
-          <div class="p-6 text-sm">
-            Your browser can’t display embedded PDFs.
-            <a href="cv.pdf" class="underline">Open the CV</a> or
-            <a href="cv.pdf" download class="underline">download it</a> instead.
+
+      <!-- Education -->
+      <div class="mt-6 grid md:grid-cols-2 gap-5">
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h3 class="font-medium">Education</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li>
+              <div class="font-semibold">PhD in Statistics</div>
+              <div class="text-slate-500">King's College London · Design of Experiments & Functional Data</div>
+            </li>
+            <li>
+              <div class="font-semibold">MSc in Statistics with Data Science</div>
+              <div class="text-slate-500">University of Edinburgh</div>
+            </li>
+            <li>
+              <div class="font-semibold">BSc in Economic Theory (minor in IT)</div>
+              <div class="text-slate-500">University of Piraeus · Deree — The American College of Greece</div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Skills -->
+        <article class="rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+          <h3 class="font-medium">Skills</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">Optimal DOE</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">Functional Data</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">Machine Learning</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">Python</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">R</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">SQL</span>
+            <span class="text-xs px-2 py-1 rounded-md border border-slate-200 dark:border-slate-700">Reproducible Workflows</span>
           </div>
-        </object>
+        </article>
       </div>
+
+      <!-- Experience -->
+      <article class="mt-5 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+        <h3 class="font-medium">Experience</h3>
+        <ul class="mt-3 space-y-4 text-sm">
+          <li>
+            <div class="flex items-baseline justify-between gap-4">
+              <div class="font-semibold">PhD Statistician Intern — Johnson & Johnson</div>
+              <div class="text-xs text-slate-500">Belgium</div>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 mt-1">Worked on statistical methods and tooling; contributed to design/analysis workflows.</p>
+          </li>
+          <li>
+            <div class="flex items-baseline justify-between gap-4">
+              <div class="font-semibold">Business Intelligence Analyst — Blueground</div>
+              <div class="text-xs text-slate-500">Greece</div>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 mt-1">Built data products and dashboards; supported data-driven ops decisions.</p>
+          </li>
+          <li>
+            <div class="flex items-baseline justify-between gap-4">
+              <div class="font-semibold">Finance Business Partner — Blueground</div>
+              <div class="text-xs text-slate-500">Greece</div>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 mt-1">Financial modeling and reporting; cross-team collaboration on planning.</p>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Selected publications / talks -->
+      <article class="mt-5 rounded-2xl border border-slate-200 dark:border-slate-800 p-5">
+        <h3 class="font-medium">Selected Publications & Talks</h3>
+        <ul class="mt-3 space-y-3 text-sm">
+          <li>
+            <div class="font-semibold">Neural Bayesian Design of Experiments (NBDO)</div>
+            <div class="text-slate-500">preprint / in progress · 2025</div>
+          </li>
+          <li>
+            <div class="font-semibold">Optimal design with functional responses</div>
+            <div class="text-slate-500">thesis chapter · 2025</div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Meta -->
+      <div class="mt-5 text-sm text-slate-500">Languages: English, Greek · Locations: Athens & London</div>
     </section>
 
     <!-- Footer -->
@@ -203,17 +277,20 @@
     ];
 
     const projects = [
-      { title: 'NBDO — neural-network-based DOE',
+      {
+        title: 'NBDO — neural-network-based DOE',
         description: 'Autoencoders + classical optimality -> robust designs for complex outputs.',
         tags: ['Python','TensorFlow','DOE'],
         url: 'https://github.com/TedOiler'
       },
-      { title: 'The Lindy List',
+      {
+        title: 'The Lindy List',
         description: 'Community site for jazz social dance parties in Athens.',
         tags: ['Django','Product'],
         url: 'https://github.com/TedOiler'
       },
-      { title: 'Clean Experiments Toolkit',
+      {
+        title: 'Clean Experiments Toolkit',
         description: 'Tiny helpers for reproducible simulation studies and DOE workflows.',
         tags: ['Python','R','CLI'],
         url: 'https://github.com/TedOiler'
